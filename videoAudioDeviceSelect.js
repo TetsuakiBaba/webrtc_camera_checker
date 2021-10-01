@@ -21,7 +21,7 @@ function getDevices() {
 function gotDevices(deviceInfos) {
     console.log("gotDevices");
     window.deviceInfos = deviceInfos;
-
+    console.log(deviceInfos);
     for (const deviceInfo of deviceInfos) {
         const option = document.createElement("option");
         option.value = deviceInfo.deviceId;
@@ -53,7 +53,7 @@ function getStream() {
     }
     const audioSource = audioSelect.value;
     const videoSource = videoSelect.value;
-    console.log(videoSelect);
+
     const constraints = {
         // audio: {
         //   deviceId: audioSource ? { exact: audioSource } : undefined,

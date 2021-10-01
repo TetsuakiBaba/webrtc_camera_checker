@@ -27,15 +27,7 @@
     <script>
         'use strict';
 
-        window.addEventListener('load', async function () {
-            const devices = await navigator.mediaDevices.enumerateDevices()
-            document.getElementById("debug").innerHTML = "";
-            for (let i = 0; i < devices.length; i++) {
-                //    console.log(devices[i]);
-                document.getElementById("debug").innerHTML += devices[i].deviceId + ',' + devices[i].label + ',' + devices[i].kind;
-            }
 
-        });
         // カメラデバイスの取得に成功したときの処理
         function handleSuccess(stream) {
             // HTML 内の video element を取得する。

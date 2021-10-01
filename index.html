@@ -16,6 +16,8 @@
 <body>
 
     <div class="container-sm">
+        Video Device: <select id="videoSource"></select><br>
+        Audio Device: <select id="audioSource"></select>
         <video id="video" style="width:100%" autoplay playsinline></video>
         <button id="start">start camera</button>
         <p id="debug">
@@ -29,9 +31,10 @@
             const devices = await navigator.mediaDevices.enumerateDevices()
             document.getElementById("debug").innerHTML = "";
             for (let i = 0; i < devices.length; i++) {
-                console.log(devices[i]);
+                //    console.log(devices[i]);
                 document.getElementById("debug").innerHTML += devices[i].deviceId + ',' + devices[i].label + ',' + devices[i].kind;
             }
+
         });
         // カメラデバイスの取得に成功したときの処理
         function handleSuccess(stream) {
@@ -78,6 +81,8 @@
         integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
         crossorigin="anonymous"></script>
 
+    <script src="./videoAudioDeviceSelect.js">
+    </script>
     <!-- Option 2: Separate Popper and Bootstrap JS -->
     <!--
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN" crossorigin="anonymous"></script>

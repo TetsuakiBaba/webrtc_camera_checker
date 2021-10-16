@@ -105,6 +105,7 @@ function gotStream(stream) {
         if (track.getCapabilities().torch) {
             //let there be light!
             const btn = document.querySelector('#button_led');
+            btn.disabled = false;
             btn.addEventListener('click', function () {
                 track.applyConstraints({
                     advanced: [{ torch: true }]

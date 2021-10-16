@@ -92,6 +92,25 @@ function gotStream(stream) {
     //   option => option.text === stream.getVideoTracks()[0].label
     // );
     videoElement.srcObject = stream;
+
+    // LEDがあるかどうかの確認と処理
+    const track = stream.getVideoTracks()[0];
+
+    //Create image capture object and get camera capabilities
+    const imageCapture = new ImageCapture(track)
+    const photoCapabilities = imageCapture.getPhotoCapabilities().then(() => {
+
+        //todo: check if camera has a torch
+
+        //let there be light!
+        const btn = document.querySelector('#button_LED');
+        btn.addEventListener('click', function () {
+            track.applyConstraints({
+                advanced: [{ torch: true }]
+            });
+        });
+    });
+
 }
 
 function handleError(error) {

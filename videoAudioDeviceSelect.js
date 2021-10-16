@@ -103,7 +103,7 @@ function gotStream(stream) {
         //todo: check if camera has a torch
 
         //let there be light!
-        const btn = document.querySelector('#button_LED');
+        const btn = document.querySelector('#button_led');
         btn.addEventListener('click', function () {
             track.applyConstraints({
                 advanced: [{ torch: true }]

@@ -60,9 +60,9 @@ function getStream() {
         // },
         audio: false,
         video: {
-            deviceId: videoSource ? { exact: videoSource } : undefined
+            deviceId: videoSource ? { exact: videoSource } : undefined,
             //facingMode: "user", // 全面カメラアクセス
-            // facingMode: { exact: "environment" },
+            //facingMode: { exact: "environment" }
             // width: { min: 320, ideal: 640, max: 1920 },
             // height: { min: 240, ideal: 480, max: 1080 }
         }
@@ -99,9 +99,8 @@ function gotStream(stream) {
     //Create image capture object and get camera capabilities
     const imageCapture = new ImageCapture(track)
     const photoCapabilities = imageCapture.getPhotoCapabilities().then(() => {
-
+        console.log("getPhotoCapabilities, hello");
         //todo: check if camera has a torch
-
         //let there be light!
         const btn = document.querySelector('#button_led');
         btn.addEventListener('click', function () {

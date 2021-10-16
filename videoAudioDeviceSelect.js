@@ -99,15 +99,22 @@ function gotStream(stream) {
     //Create image capture object and get camera capabilities
     const imageCapture = new ImageCapture(track)
     const photoCapabilities = imageCapture.getPhotoCapabilities().then(() => {
-        console.log("getPhotoCapabilities, hello");
+        console.log("capabilities", track.getCapabilities());
+
         //todo: check if camera has a torch
-        //let there be light!
-        const btn = document.querySelector('#button_led');
-        btn.addEventListener('click', function () {
-            track.applyConstraints({
-                advanced: [{ torch: true }]
+        if (track.getCapabilities().torch) {
+            //let there be light!
+            const btn = document.querySelector('#button_led');
+            btn.addEventListener('click', function () {
+                track.applyConstraints({
+                    advanced: [{ torch: true }]
+                });
             });
-        });
+        }
+        else {
+            const btn = document.querySelector('#button_led');
+            btn.disabled = true;
+        }
     });
 
 }

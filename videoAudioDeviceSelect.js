@@ -114,7 +114,7 @@ function gotStream(stream) {
         }
         else {
             var btn = document.querySelector('#button_led');
-            //btn.disabled = true;
+            btn.disabled = true;
         }
     });
 

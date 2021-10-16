@@ -104,7 +104,7 @@ function gotStream(stream) {
         //todo: check if camera has a torch
         if (track.getCapabilities().torch) {
             //let there be light!
-            const btn = document.querySelector('#button_led');
+            var btn = document.querySelector('#button_led');
             btn.disabled = false;
             btn.addEventListener('click', function () {
                 track.applyConstraints({
@@ -113,7 +113,7 @@ function gotStream(stream) {
             });
         }
         else {
-            const btn = document.querySelector('#button_led');
+            var btn = document.querySelector('#button_led');
             btn.disabled = true;
         }
     });

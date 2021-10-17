@@ -109,8 +109,8 @@ function gotStream(stream) {
             //let there be light!
             var btn = document.querySelector('#button_led');
             btn.disabled = false;
-            is_torch_on = !is_torch_on;
             btn.addEventListener('click', function () {
+                is_torch_on = !is_torch_on;
                 track.applyConstraints({
                     advanced: [{ torch: is_torch_on }]
                 });

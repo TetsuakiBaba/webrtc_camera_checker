@@ -103,7 +103,7 @@ function gotStream(stream) {
         console.log("capabilities", track.getCapabilities());
         document.querySelector('#debug').innerHTML = "is_rotch_on:" + is_torch_on + "<br>";
         document.querySelector('#debug').innerHTML += JSON.stringify(track.getCapabilities());
-        document.querySelector('#debug').innerHTML += JSON.stringify(track.getPhotoCapabilities());
+
         //todo: check if camera has a torch
         if (track.getCapabilities().torch) {
             //let there be light!

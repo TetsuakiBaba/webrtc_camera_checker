@@ -111,6 +111,8 @@ function gotStream(stream) {
             btn.disabled = false;
             btn.addEventListener('click', function () {
                 is_torch_on = !is_torch_on;
+                document.querySelector('#debug').innerHTML = "is_rotch_on:" + is_torch_on + "<br>";
+                document.querySelector('#debug').innerHTML += JSON.stringify(track.getCapabilities());
                 track.applyConstraints({
                     advanced: [{ torch: is_torch_on }]
                 });

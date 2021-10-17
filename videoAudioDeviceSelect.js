@@ -81,6 +81,7 @@ function getStream() {
         .catch(handleError);
 }
 
+var is_torch_on = false;
 function gotStream(stream) {
     console.log("gotStream");
     window.stream = stream;
@@ -106,9 +107,10 @@ function gotStream(stream) {
             //let there be light!
             var btn = document.querySelector('#button_led');
             btn.disabled = false;
+            is_torch_on = !is_torch_on;
             btn.addEventListener('click', function () {
                 track.applyConstraints({
-                    advanced: [{ torch: true }]
+                    advanced: [{ torch: is_torch_on }]
                 });
             });
         }
